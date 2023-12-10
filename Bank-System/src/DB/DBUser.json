@@ -1,0 +1,14 @@
+[
+    {
+        "nomorRekening": "1234",
+        "pin": "1234",
+        "pk": 0,
+        "namaUser": "test1"
+    },
+    {
+        "nomorRekening": "07606",
+        "pin": "07606",
+        "pk": 1,
+        "namaUser": "rizky"
+    }
+]
