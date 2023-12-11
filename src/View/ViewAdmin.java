@@ -2,19 +2,22 @@ package View;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.ModuleLayer.Controller;
 import java.util.Scanner;
 
 import org.json.simple.parser.ParseException;
 
+import Controller.Data.ControllerUser;
+import Controller.Json.ControllerJsonUser;
 import Controller.LoginSystem.LoginSystemAdmins;
-import Model.ModelUser;
-import NodeData.NodeUser;
+import Model.Json.ModelJsonUser;
+import Model.Data.ModelUser;
 
 public class ViewAdmin {
 
     private Scanner scanner;
 
-    public ViewAdmin(ModelUser modelUser) {
+    public ViewAdmin(ModelJsonUser modelUser) {
         this.scanner = new Scanner(System.in);
     }
 
@@ -31,7 +34,7 @@ public class ViewAdmin {
     }
 
     public void loginAdmin(LoginSystemAdmins loginSystem) throws FileNotFoundException, IOException, ParseException {
-        ModelUser modelUser = new ModelUser();
+        ControllerUser controllerUser = new ControllerUser();
         System.out.print("Masukkan Username: ");
         String usernameAdmin = scanner.nextLine();
         System.out.print("Masukkan Password: ");
@@ -56,12 +59,12 @@ public class ViewAdmin {
                         String addNomorRekening = scanner.nextLine();
                         System.out.print("Masukkan Pin: ");
                         int addPin = scanner.nextInt();
-                        modelUser.addUser(addNamaNasabah, addNomorRekening, addPin);
-                        modelUser.commit();
+                        controllerUser.addUser(addNamaNasabah, addNomorRekening, addPin);
+                        controllerUser.commit();
                         break;
                     case 2:
                         System.out.println("=== Menu Lihat Data Nasabah ===");
-                        modelUser.getUsers().forEach((users) -> {
+                        controllerUser.getUsers().forEach((users) -> {
                             System.out.println("Pk: " + users.pk);
                             System.out.println("Nama Nasabah: " + users.namaUser);
                             System.out.println("Nomor Rekening: " + users.nomorRekening);
@@ -77,10 +80,11 @@ public class ViewAdmin {
                         String updateUserName = scanner.nextLine();
                         System.out.println("Masukkan Pin Terbaru: ");
                         int updatePin = scanner.nextInt();
-                        Boolean updateNasabah = modelUser.updateUser(updateUserName, updateNomorRekening, updatePin);
+                        Boolean updateNasabah = controllerUser.updateUser(updateUserName, updateNomorRekening,
+                                updatePin);
                         if (updateNasabah) {
                             System.out.println("Update Berhasil!");
-                            modelUser.commit();
+                            controllerUser.commit();
                         } else {
                             System.out.println("Update Gagal!");
                         }
@@ -90,10 +94,10 @@ public class ViewAdmin {
                         System.out.println("=== Menu Hapus Nasabah ===");
                         System.out.println("Masukkan Nomor Rekening: ");
                         String deleteNomorRekening = scanner.nextLine();
-                        boolean deleted = modelUser.deleteUser(deleteNomorRekening);
+                        boolean deleted = controllerUser.deleteUser(deleteNomorRekening);
                         if (deleted) {
                             System.out.println("Hapus Berhasil!");
-                            modelUser.commit();
+                            controllerUser.commit();
                         } else {
                             System.out.println("Hapus Gagal!");
                         }
@@ -103,7 +107,7 @@ public class ViewAdmin {
                         System.out.println("=== Menu Cari Data Nasabah ===");
                         System.out.println("Masukkan Nomor Rekening: ");
                         String findNomorRekening = scanner.nextLine();
-                        NodeUser findUser = modelUser.getUser(findNomorRekening);
+                        ModelUser findUser = controllerUser.getUser(findNomorRekening);
                         if (findUser != null) {
                             System.out.println("Data Ditemukan!");
                             System.out.println("Id: " + findUser.pk);

@@ -7,12 +7,12 @@ import java.util.Scanner;
 import org.json.simple.parser.ParseException;
 
 import Controller.LoginSystem.LoginSystemUsers;
-import Model.ModelUser;
+import Model.Json.ModelJsonUser;
 
 public class ViewUser {
     private Scanner scanner;
 
-    public ViewUser(ModelUser modelUser) {
+    public ViewUser(ModelJsonUser modelUser) {
         this.scanner = new Scanner(System.in);
     }
 

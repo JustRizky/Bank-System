@@ -3,7 +3,7 @@ package Controller.LoginSystem;
 import java.util.ArrayList;
 import java.util.List;
 
-import Model.ModelAdminAuth;
+import Model.Auth.ModelAdminAuth;
 
 public class LoginSystemAdmins {
     private List<ModelAdminAuth> admins;
