@@ -6,13 +6,13 @@ import org.json.simple.parser.ParseException;
 
 import Controller.LoginSystem.LoginSystemAdmins;
 import Controller.LoginSystem.LoginSystemUsers;
-import Model.ModelUser;
+import Model.Json.ModelJsonUser;
 import View.ViewAdmin;
 import View.ViewUser;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
-        ModelUser modelUser = new ModelUser();
+        ModelJsonUser modelUser = new ModelJsonUser();
         LoginSystemAdmins loginSystemAdmins = new LoginSystemAdmins();
         LoginSystemUsers loginSystemUsers = new LoginSystemUsers();
 

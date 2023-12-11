@@ -6,19 +6,19 @@ import java.util.List;
 
 import org.json.simple.parser.ParseException;
 
-import ModelJSON.ModelJSONUser;
-import NodeData.NodeUser;
+import Controller.Json.ControllerJsonUser;
+import Model.Data.ModelUser;
 
 public class LoginSystemUsers {
-    private ModelJSONUser modelJSONUser = new ModelJSONUser();
-    private List<NodeUser> users;
+    private ControllerJsonUser modelJSONUser = new ControllerJsonUser();
+    private List<ModelUser> users;
 
     public LoginSystemUsers() throws FileNotFoundException, IOException, ParseException {
         users = modelJSONUser.readFromFile();
     }
 
     public boolean LoginUsers(String nomorRekening, int pin) {
-        for (NodeUser user : users) {
+        for (ModelUser user : users) {
             if (user.getNomorRekening().equals(nomorRekening) && user.getPin() == (pin)) {
                 return true;
             }
