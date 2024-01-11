@@ -5,12 +5,14 @@ public class ModelUser {
     public String namaUser;
     public String nomorRekening;
     public int pin;
+    public double saldo;
 
-    public ModelUser(int pk, String namaUser, String nomorRekening, int pin) {
+    public ModelUser(int pk, String namaUser, String nomorRekening, int pin, double saldo) {
         this.pk = pk;
         this.namaUser = namaUser;
         this.nomorRekening = nomorRekening;
         this.pin = pin;
+        this.saldo = saldo;
     }
 
     public int getPk() {
@@ -43,6 +45,14 @@ public class ModelUser {
 
     public void setPin(int pin) {
         this.pin = pin;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
     }
 
 }

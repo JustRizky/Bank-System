@@ -2,13 +2,11 @@ package View;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.ModuleLayer.Controller;
 import java.util.Scanner;
 
 import org.json.simple.parser.ParseException;
 
 import Controller.Data.ControllerUser;
-import Controller.Json.ControllerJsonUser;
 import Controller.LoginSystem.LoginSystemAdmins;
 import Model.Json.ModelJsonUser;
 import Model.Data.ModelUser;
@@ -120,6 +118,9 @@ public class ViewAdmin {
                         break;
                     case 6:
                         break;
+                    case 7:
+                        System.out.println("Program Selesai!");
+                        System.exit(0);
                     default:
                         System.out.println("Pilihan Tidak Ada!");
                         break;

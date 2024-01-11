@@ -39,13 +39,19 @@ public class ViewUser {
 
             int pilihan = scanner.nextInt();
             switch (pilihan) {
-                case 1 -> System.out.println("Create");
-                case 2 -> System.out.println("Lihat Akun");
-                case 3 -> System.out.println("Update Akun");
-                case 4 -> System.out.println("Hapus Akun");
-                case 5 -> System.out.println("Kembali");
-                case 6 -> System.out.println("Exit");
-                default -> System.out.println("Pilihan Tidak Ada!");
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    System.out.println("Exit!");
+                    System.exit(0);
             }
         } else {
             System.out.println("Login Gagal!");

@@ -34,7 +34,7 @@ public class ControllerUser {
 
     public void addUser(String namaUser, String nomorRekening, int pin) {
         int kodeUser = getLastKode() + 1;
-        ModelUser user = new ModelUser(kodeUser, namaUser, nomorRekening, pin);
+        ModelUser user = new ModelUser(kodeUser, namaUser, nomorRekening, pin, 0);
         users.add(user);
     }
 

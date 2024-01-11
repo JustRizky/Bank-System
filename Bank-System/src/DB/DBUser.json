@@ -6,12 +6,6 @@
         "namaUser": "Rizky"
     },
     {
-        "nomorRekening": "07602",
-        "pin": 7602,
-        "pk": 2,
-        "namaUser": "Panji"
-    },
-    {
         "nomorRekening": "07607",
         "pin": 7607,
         "pk": 3,
@@ -22,5 +16,11 @@
         "pin": 7601,
         "pk": 4,
         "namaUser": "Pandu"
+    },
+    {
+        "nomorRekening": "07602",
+        "pin": 7602,
+        "pk": 5,
+        "namaUser": "Panji"
     }
 ]

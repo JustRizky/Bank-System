@@ -48,7 +48,8 @@ public class ControllerJsonUser {
                 String namaUser = user.get(nodeJSONUser.namaUser).toString();
                 String nomorRekening = user.get(nodeJSONUser.nomorRekening).toString();
                 int pin = Integer.parseInt(user.get(nodeJSONUser.pin).toString());
-                listUser.add(new ModelUser(pk, namaUser, nomorRekening, pin));
+                double saldo = Double.parseDouble(user.get(nodeJSONUser.saldo).toString());
+                listUser.add(new ModelUser(pk, namaUser, nomorRekening, pin, saldo));
             }
             return listUser;
         }
