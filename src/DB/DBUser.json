@@ -1,0 +1,37 @@
+[
+    {
+        "nomorRekening": "07606",
+        "pin": 7606,
+        "id": 1,
+        "saldo": 0.0,
+        "namaUser": "Rizky"
+    },
+    {
+        "nomorRekening": "07607",
+        "pin": 7607,
+        "id": 2,
+        "saldo": 0.0,
+        "namaUser": "Rangga"
+    },
+    {
+        "nomorRekening": "07601",
+        "pin": 7601,
+        "id": 3,
+        "saldo": 0.0,
+        "namaUser": "Pandu"
+    },
+    {
+        "nomorRekening": "07602",
+        "pin": 7602,
+        "id": 4,
+        "saldo": 0.0,
+        "namaUser": "Panji"
+    },
+    {
+        "nomorRekening": "123",
+        "pin": 123,
+        "id": 5,
+        "saldo": 0.0,
+        "namaUser": "test"
+    }
+]
