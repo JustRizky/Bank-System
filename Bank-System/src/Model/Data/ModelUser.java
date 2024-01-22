@@ -3,16 +3,12 @@ package Model.Data;
 public class ModelUser {
     public int pk;
     public String namaUser;
-    public String nomorRekening;
-    public int pin;
-    public double saldo;
+    public ModelRekening rekening;
 
-    public ModelUser(int pk, String namaUser, String nomorRekening, int pin, double saldo) {
+    public ModelUser(int pk, String namaUser, ModelRekening rekening) {
         this.pk = pk;
         this.namaUser = namaUser;
-        this.nomorRekening = nomorRekening;
-        this.pin = pin;
-        this.saldo = saldo;
+        this.rekening = rekening;
     }
 
     public int getPk() {
@@ -31,28 +27,11 @@ public class ModelUser {
         this.namaUser = namaUser;
     }
 
-    public String getNomorRekening() {
-        return nomorRekening;
+    public ModelRekening getRekening() {
+        return rekening;
     }
 
-    public void setNomorRekening(String nomorRekening) {
-        this.nomorRekening = nomorRekening;
+    public void setRekening(ModelRekening rekening) {
+        this.rekening = rekening;
     }
-
-    public int getPin() {
-        return pin;
-    }
-
-    public void setPin(int pin) {
-        this.pin = pin;
-    }
-
-    public double getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
 }
