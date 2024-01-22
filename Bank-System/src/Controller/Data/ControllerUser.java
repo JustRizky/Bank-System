@@ -10,7 +10,7 @@ import Controller.Json.ControllerJsonUser;
 import Model.Data.ModelUser;
 
 public class ControllerUser {
-    private ArrayList<ModelUser> users;
+    private static ArrayList<ModelUser> users;
     private ControllerJsonUser controllerJsonUser;
 
     public ControllerUser() throws FileNotFoundException, IOException, ParseException {
@@ -23,18 +23,18 @@ public class ControllerUser {
         users = controllerJsonUser.readFromFile();
     }
 
-    public ArrayList<ModelUser> getUsers() {
+    public static ArrayList<ModelUser> getUsers() {
         return users;
     }
 
     private int getLastKode() {
         int lastKode = users.size() - 1;
-        return users.get(lastKode).pk;
+        return users.get(lastKode).id;
     }
 
     public void addUser(String namaUser, String nomorRekening, int pin) {
         int kodeUser = getLastKode() + 1;
-        ModelUser user = new ModelUser(kodeUser, namaUser, nomorRekening, pin, 0);
+        ModelUser user = new ModelUser(kodeUser, namaUser, nomorRekening, pin);
         users.add(user);
     }
 
@@ -71,4 +71,5 @@ public class ControllerUser {
     public void commit() throws IOException {
         controllerJsonUser.writeFileJSON(users);
     }
+    
 }

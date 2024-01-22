@@ -2,6 +2,7 @@ package View;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import org.json.simple.parser.ParseException;
@@ -30,6 +31,37 @@ public class ViewAdmin {
         System.out.println("7. Keluar Program!");
         System.out.print("Masukkan Pilihan: ");
     }
+
+    public void searchUser(ControllerUser controllerUser) {
+    System.out.print("\033\143");
+    System.out.println("=== Menu Cari Data Nasabah ===");
+    System.out.print("Masukkan Kata Kunci: ");
+    String keyword = scanner.nextLine();
+
+    ArrayList<ModelUser> matchingUsers = new ArrayList<>();
+
+    for (ModelUser user : controllerUser.getUsers()) {
+        if (user.getNomorRekening().contains(keyword) ||
+            user.getNamaUser().contains(keyword)) {
+            matchingUsers.add(user);
+        }
+    }
+
+    if (!matchingUsers.isEmpty()) {
+        System.out.println("Data Ditemukan:");
+        for (ModelUser matchingUser : matchingUsers) {
+            System.out.println("ID: " + matchingUser.id);
+            System.out.println("Nama Nasabah: " + matchingUser.namaUser);
+            System.out.println("Nomor Rekening: " + matchingUser.nomorRekening);
+            System.out.println("Pin: " + matchingUser.pin);
+            System.out.println("Saldo: " + matchingUser.saldo);
+            System.out.println("-------------------------");
+        }
+    } else {
+        System.out.println("Data Tidak Ditemukan!");
+    }
+}
+
 
     public void loginAdmin(LoginSystemAdmins loginSystem) throws FileNotFoundException, IOException, ParseException {
         ControllerUser controllerUser = new ControllerUser();
@@ -63,10 +95,11 @@ public class ViewAdmin {
                     case 2:
                         System.out.println("=== Menu Lihat Data Nasabah ===");
                         controllerUser.getUsers().forEach((users) -> {
-                            System.out.println("Pk: " + users.pk);
+                            System.out.println("ID: " + users.id);
                             System.out.println("Nama Nasabah: " + users.namaUser);
                             System.out.println("Nomor Rekening: " + users.nomorRekening);
                             System.out.println("Pin: " + users.pin);
+                            System.out.println("Saldo: " + users.saldo);
                         });
                         break;
                     case 3:
@@ -101,20 +134,7 @@ public class ViewAdmin {
                         }
                         break;
                     case 5:
-                        System.out.print("\033\143");
-                        System.out.println("=== Menu Cari Data Nasabah ===");
-                        System.out.println("Masukkan Nomor Rekening: ");
-                        String findNomorRekening = scanner.nextLine();
-                        ModelUser findUser = controllerUser.getUser(findNomorRekening);
-                        if (findUser != null) {
-                            System.out.println("Data Ditemukan!");
-                            System.out.println("Id: " + findUser.pk);
-                            System.out.println("Nama Nasabah: " + findUser.namaUser);
-                            System.out.println("Nomor Rekening: " + findUser.nomorRekening);
-                            System.out.println("Pin: " + findUser.pin);
-                        } else {
-                            System.out.println("Data Tidak Ditemukan!");
-                        }
+                        searchUser(controllerUser);
                         break;
                     case 6:
                         break;

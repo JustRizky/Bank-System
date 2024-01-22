@@ -26,10 +26,11 @@ public class ControllerJsonUser {
             ModelJsonUser modelJsonUser = new ModelJsonUser();
             for (ModelUser user : listUser) {
                 JSONObject objUser = new JSONObject();
-                objUser.put(modelJsonUser.pk, user.pk);
+                objUser.put(modelJsonUser.id, user.id);
                 objUser.put(modelJsonUser.namaUser, user.namaUser);
                 objUser.put(modelJsonUser.nomorRekening, user.nomorRekening);
                 objUser.put(modelJsonUser.pin, user.pin);
+                objUser.put(modelJsonUser.saldo, user.saldo);
                 arrayUser.add(objUser);
             }
             return arrayUser;
@@ -44,12 +45,11 @@ public class ControllerJsonUser {
             ModelJsonUser nodeJSONUser = new ModelJsonUser();
             for (Object objUser : arrayUser) {
                 JSONObject user = (JSONObject) objUser;
-                int pk = Integer.parseInt(user.get(nodeJSONUser.pk).toString());
+                int id = Integer.parseInt(user.get(nodeJSONUser.id).toString());
                 String namaUser = user.get(nodeJSONUser.namaUser).toString();
                 String nomorRekening = user.get(nodeJSONUser.nomorRekening).toString();
                 int pin = Integer.parseInt(user.get(nodeJSONUser.pin).toString());
-                double saldo = Double.parseDouble(user.get(nodeJSONUser.saldo).toString());
-                listUser.add(new ModelUser(pk, namaUser, nomorRekening, pin, saldo));
+                listUser.add(new ModelUser(id, namaUser, nomorRekening, pin));
             }
             return listUser;
         }
